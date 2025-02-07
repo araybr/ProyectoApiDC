@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Character} from '../../character.model';
 
 @Component({
   selector: 'app-busqueda',
@@ -8,15 +9,24 @@ import { Component } from '@angular/core';
   styleUrl: './busqueda.component.css'
 })
 export class BusquedaComponent {
-  async buscar(){
-    var url = "https://www.amiiboapi.com/api/amiibo/";
+  currentPage = 0
+  characters = [];
+  async buscar(pagina:number){
+    const limit = 20;
+    const offset = pagina * limit;
+    var url = 'https://rickandmortyapi.com/api/character?limit=${limit}&offset=${offset}';
     const response = await fetch(url);
     const data = await response.json();
-    this.showAmiibos(data.results);
+   this.characters = data["results"].map((c: any) => new Character(c));
   }
-
-  async showAmiibos(amiibos:AuthenticationExtensionsPRFValues){
-
+  siguientePagina(){
+    this.currentPage++;
+    this.buscar(this.currentPage);
   }
-
+  anteriorPagina(){
+    if(this.currentPage>0){
+      this.currentPage--;
+    }
+    this.buscar(this.currentPage);
+  }
 }

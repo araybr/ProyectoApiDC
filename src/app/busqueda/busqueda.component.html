@@ -1,2 +1,5 @@
-<p>busqueda works!</p>
-<div class="contenedor"></div>
+<h1>BUSQUEDA</h1>
+<button (click)="buscar(0)">Buscar</button>
+<app-character *ngFor="let character of characters; let i=index" [character] = "character"></app-character>
+<button (click)="anteriorPagina()">Anterior</button>
+<button (click)="siguientePagina()">Siguiente</button>

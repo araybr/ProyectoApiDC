@@ -9,24 +9,38 @@ import {Character} from '../../character.model';
   styleUrl: './busqueda.component.css'
 })
 export class BusquedaComponent {
-  currentPage = 0
+  currentPage = 1
   characters = [];
-  async buscar(pagina:number){
-    const limit = 20;
-    const offset = pagina * limit;
-    var url = 'https://rickandmortyapi.com/api/character?limit=${limit}&offset=${offset}';
+  inicio = 1;
+  final = 10;
+  async buscar(){
+    var url = 'https://rickandmortyapi.com/api/character/';
+    for (let i = this.inicio; i <= this.final; i++) {
+      if(i<=826){
+        url+=i.toString()
+        if(i!=this.final){
+          url+=","
+        }
+      }else{
+        break;
+      }
+    }
     const response = await fetch(url);
     const data = await response.json();
-   this.characters = data["results"].map((c: any) => new Character(c));
+    this.characters = data.map((c: any) => new Character(c));
   }
   siguientePagina(){
-    this.currentPage++;
-    this.buscar(this.currentPage);
+    if (this.final<=830){
+      this.inicio+=10;
+      this.final+=10;
+    }
+    this.buscar();
   }
   anteriorPagina(){
-    if(this.currentPage>0){
-      this.currentPage--;
+    if(this.inicio>1){
+      this.inicio-=10;
+      this.final-=10;
     }
-    this.buscar(this.currentPage);
+    this.buscar();
   }
 }

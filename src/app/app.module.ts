@@ -8,6 +8,14 @@ import { InicioComponent } from './inicio/inicio.component';
 import { InformacionComponent } from './informacion/informacion.component';
 import { CharacterComponent } from './character/character.component';
 import {FormsModule} from '@angular/forms';
+import {RouterModule, Routes} from '@angular/router';
+
+
+const appRoutes:Routes = [
+  {path:"", component: InicioComponent},
+  {path:"busqueda", component: BusquedaComponent},
+  {path:"informacion", component: InformacionComponent}
+]
 
 @NgModule({
   declarations: [
@@ -20,7 +28,8 @@ import {FormsModule} from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -9,7 +9,6 @@ import {Character} from '../../character.model';
   styleUrl: './busqueda.component.css'
 })
 export class BusquedaComponent {
-  currentPage = 1
   characters = [];
   inicio = 1;
   final = 10;

@@ -1,5 +1,19 @@
 <h1>BUSQUEDA</h1>
-<button (click)="buscar()">Buscar</button>
+<input type="text" #busqueda>
+<button (click)="buscar(busqueda.value)">Buscar</button>
+<select #tipoGenero>
+  <option value="female">Mujer</option>
+  <option value="male">Hombre</option>
+  <option value="genderless">Sin Género</option>
+  <option value="unknown">Desconocido</option>
+</select>
+<button (click)="buscar(busqueda.value)">Buscar Por Genero</button>
+<select #tipoVida>
+  <option value="alive">Vivo</option>
+  <option value="dead">Muerto</option>
+  <option value="unknown">Desconocido</option>
+</select>
+<button (click)="buscar(busqueda.value)">Buscar Por Estado de Vida</button>
 <div class="contenedor">
   <app-character *ngFor="let character of characters; let i=index" [character] = "character"></app-character>
 </div>

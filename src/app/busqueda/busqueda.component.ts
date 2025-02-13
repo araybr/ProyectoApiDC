@@ -63,7 +63,7 @@ export class BusquedaComponent {
       var url = 'https://rickandmortyapi.com/api/character/' + this.busqueda;
       const response = await fetch(url);
       const data = await response.json();
-      this.characters.push(new Character(data))
+      this.characters = [new Character(data)];
     }
   }
   async buscarPorGenero(genero:string){

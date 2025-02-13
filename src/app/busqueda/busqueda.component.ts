@@ -66,6 +66,38 @@ export class BusquedaComponent {
       this.characters.push(new Character(data))
     }
   }
+  async buscarPorGenero(genero:string){
+    this.esBusquedaGenero = true;
+    this.esBusquedaNombre = false;
+    this.esBusquedaVida = false;
+    this.genero = genero;
+    var url = 'https://rickandmortyapi.com/api/character/?page=' + this.paginas[1].toString() + '&gender=' + genero;
+    const response = await fetch(url);
+    const data = await response.json();
+    this.characterBusqueda1 = data["results"].slice(0,10)
+    this.characterBusqueda2 = data["results"].slice(10)
+    if (!this.esPagina2Lista[1]){
+      this.characters = this.characterBusqueda1.map((c: any) => new Character(c))
+    }else{
+      this.characters = this.characterBusqueda2.map((c: any) => new Character(c))
+    }
+  }
+  async buscarPorVida(status:string){
+    this.status = status;
+    this.esBusquedaGenero = false;
+    this.esBusquedaNombre = false;
+    this.esBusquedaVida = true;
+    var url = 'https://rickandmortyapi.com/api/character/?page=' + this.paginas[2].toString() + '&status=' + status;
+    const response = await fetch(url);
+    const data = await response.json();
+    this.characterBusqueda1 = data["results"].slice(0,10)
+    this.characterBusqueda2 = data["results"].slice(10)
+    if (!this.esPagina2Lista[2]){
+      this.characters = this.characterBusqueda1.map((c: any) => new Character(c))
+    }else{
+      this.characters = this.characterBusqueda2.map((c: any) => new Character(c))
+    }
+  }
   siguientePagina(){
     if (this.esBusquedaNombre){
       this.inicio = 1;    //Reseteo la busqueda normal
@@ -168,37 +200,6 @@ export class BusquedaComponent {
       this.buscar(this.busqueda);
     }
   }
-  async buscarPorGenero(genero:string){
-    this.esBusquedaGenero = true;
-    this.esBusquedaNombre = false;
-    this.esBusquedaVida = false;
-    this.genero = genero;
-    var url = 'https://rickandmortyapi.com/api/character/?page=' + this.paginas[1].toString() + '&gender=' + genero;
-    const response = await fetch(url);
-    const data = await response.json();
-    this.characterBusqueda1 = data["results"].slice(0,10)
-    this.characterBusqueda2 = data["results"].slice(10)
-    if (!this.esPagina2Lista[1]){
-      this.characters = this.characterBusqueda1.map((c: any) => new Character(c))
-    }else{
-      this.characters = this.characterBusqueda2.map((c: any) => new Character(c))
-    }
-  }
-  async buscarPorVida(status:string){
-    this.status = status;
-    this.esBusquedaGenero = false;
-    this.esBusquedaNombre = false;
-    this.esBusquedaVida = true;
-    var url = 'https://rickandmortyapi.com/api/character/?page=' + this.paginas[2].toString() + '&status=' + status;
-    const response = await fetch(url);
-    const data = await response.json();
-    this.characterBusqueda1 = data["results"].slice(0,10)
-    this.characterBusqueda2 = data["results"].slice(10)
-    if (!this.esPagina2Lista[2]){
-      this.characters = this.characterBusqueda1.map((c: any) => new Character(c))
-    }else{
-      this.characters = this.characterBusqueda2.map((c: any) => new Character(c))
-    }
-  }
+
 
 }

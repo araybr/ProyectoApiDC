@@ -7,13 +7,13 @@
   <option value="genderless">Sin Género</option>
   <option value="unknown">Desconocido</option>
 </select>
-<button (click)="buscar(busqueda.value)">Buscar Por Genero</button>
+<button (click)="buscarPorGenero(tipoGenero.value)">Buscar Por Genero</button>
 <select #tipoVida>
   <option value="alive">Vivo</option>
   <option value="dead">Muerto</option>
   <option value="unknown">Desconocido</option>
 </select>
-<button (click)="buscar(busqueda.value)">Buscar Por Estado de Vida</button>
+<button (click)="buscarPorVida(tipoVida.value)">Buscar Por Estado de Vida</button>
 <div class="contenedor">
   <app-character *ngFor="let character of characters; let i=index" [character] = "character"></app-character>
 </div>

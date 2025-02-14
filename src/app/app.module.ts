@@ -9,12 +9,14 @@ import { InformacionComponent } from './informacion/informacion.component';
 import { CharacterComponent } from './character/character.component';
 import {FormsModule} from '@angular/forms';
 import {RouterModule, Routes} from '@angular/router';
+import { FavoritosComponent } from './favoritos/favoritos.component';
 
 
 const appRoutes:Routes = [
   {path:"", component: InicioComponent},
   {path:"busqueda", component: BusquedaComponent},
-  {path:"informacion", component: InformacionComponent}
+  {path:"informacion", component: InformacionComponent},
+  {path:"favoritos", component: FavoritosComponent}
 ]
 
 @NgModule({
@@ -23,7 +25,8 @@ const appRoutes:Routes = [
     BusquedaComponent,
     InicioComponent,
     InformacionComponent,
-    CharacterComponent
+    CharacterComponent,
+    FavoritosComponent
   ],
   imports: [
     BrowserModule,

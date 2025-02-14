@@ -16,7 +16,7 @@ export class BusquedaComponent {
   esBusquedaGenero = false;
   esBusquedaVida = false;
   esPagina2Lista = [false, false, false];
-  paginas = [1,1,1]
+  paginas = [1,1,1];
   inicio = 1;
   final = 10;
   genero = "";

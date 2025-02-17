@@ -10,13 +10,15 @@ import { CharacterComponent } from './character/character.component';
 import {FormsModule} from '@angular/forms';
 import {RouterModule, Routes} from '@angular/router';
 import { FavoritosComponent } from './favoritos/favoritos.component';
+import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
 
 
 const appRoutes:Routes = [
   {path:"", component: InicioComponent},
   {path:"busqueda", component: BusquedaComponent},
   {path:"informacion", component: InformacionComponent},
-  {path:"favoritos", component: FavoritosComponent}
+  {path:"favoritos", component: FavoritosComponent},
+  {path:"inicio-sesion", component: InicioSesionComponent}
 ]
 
 @NgModule({
@@ -26,7 +28,8 @@ const appRoutes:Routes = [
     InicioComponent,
     InformacionComponent,
     CharacterComponent,
-    FavoritosComponent
+    FavoritosComponent,
+    InicioSesionComponent
   ],
   imports: [
     BrowserModule,

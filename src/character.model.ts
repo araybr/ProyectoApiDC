@@ -3,6 +3,11 @@ export class Character{
   name:string;
   imagen:string;
   species:string;
+  gender:string;
+  origin:Object;
+  status:string;
+
+
   estaFavoritos:boolean;
   constructor(data: any) {
     this.id = data["id"];
@@ -10,5 +15,8 @@ export class Character{
     this.imagen = data["image"];
     this.species = data["species"];
     this.estaFavoritos = false;
+    this.origin = data["origin"];
+    this.gender = data["gender"];
+    this.status = data["status"];
   }
 }

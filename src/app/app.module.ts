@@ -11,6 +11,7 @@ import {FormsModule} from '@angular/forms';
 import {RouterModule, Routes} from '@angular/router';
 import { FavoritosComponent } from './favoritos/favoritos.component';
 import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
+import { DetallesComponent } from './detalles/detalles.component';
 
 
 const appRoutes:Routes = [
@@ -18,7 +19,8 @@ const appRoutes:Routes = [
   {path:"busqueda", component: BusquedaComponent},
   {path:"informacion", component: InformacionComponent},
   {path:"favoritos", component: FavoritosComponent},
-  {path:"inicio-sesion", component: InicioSesionComponent}
+  {path:"inicio-sesion", component: InicioSesionComponent},
+  {path:"detalles/:id", component: DetallesComponent}
 ]
 
 @NgModule({
@@ -29,7 +31,8 @@ const appRoutes:Routes = [
     InformacionComponent,
     CharacterComponent,
     FavoritosComponent,
-    InicioSesionComponent
+    InicioSesionComponent,
+    DetallesComponent
   ],
   imports: [
     BrowserModule,

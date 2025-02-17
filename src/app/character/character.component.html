@@ -1,0 +1,12 @@
+<a [routerLink]="['/detalles/',character.id]">
+  <div>
+    <h2>{{character.name}}</h2>
+    <img src="{{character.imagen}}">
+    <p>{{character.species}}</p>
+    <button *ngIf="character.estaFavoritos==true; else anyadir" (click)="servicio.eliminar(character)">Eliminar</button>
+    <ng-template #anyadir>
+      <button class="add-to-team" (click)="servicio.anyadirAFavoritos(character)">➕ Favoritos</button>
+    </ng-template>
+  </div>
+</a>
+

@@ -1,0 +1,10 @@
+<div *ngIf="sesionIniciada==false, else perfil">
+  <input #usuario type="text" placeholder="Usuario">
+  <input #contrasenya type="password" placeholder="Contraseña">
+  <input (click)="iniciarSesion(usuario.value, contrasenya.value)" type="button" value="Iniciar Sesión">
+</div>
+<ng-template #perfil>
+  <img src="https://e7.pngegg.com/pngimages/722/101/png-clipart-computer-icons-user-profile-circle-abstract-miscellaneous-rim.png">
+  <input (click)="cerrarSesion()" type="button" value="Cerrar Sesión">
+</ng-template>
+

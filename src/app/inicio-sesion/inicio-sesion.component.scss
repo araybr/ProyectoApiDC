@@ -1,0 +1,73 @@
+$primary-color: #4caf50;
+$dark-bg: rgba(0, 0, 0, 0.7);
+p{
+  color: white;
+}
+
+.login-container,
+.profile-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background: $dark-bg;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 255, 0, 0.3);
+  box-sizing: border-box;
+
+  h2 {
+    color: $primary-color;
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid $primary-color;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    outline: none;
+    transition: border 0.3s;
+    box-sizing: border-box;
+
+    &::placeholder {
+      color: #aaa;
+    }
+
+    &:focus {
+      border-color: lighten($primary-color, 20%);
+    }
+  }
+
+  .login-button,
+  .logout-button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .login-button {
+    background: $primary-color;
+    color: white;
+    border: none;
+
+    &:hover {
+      background: lighten($primary-color, 10%);
+    }
+  }
+
+  .logout-button {
+    background: red;
+    color: white;
+    border: none;
+
+    &:hover {
+      background: darken(red, 10%);
+    }
+  }
+}

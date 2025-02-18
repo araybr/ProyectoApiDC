@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Document</title>
+</head>
+<body>
+  <div class="favorites-container">
+    <h1>Favoritos</h1>
+
+    <div *ngIf="servicio.favoritos.length > 0; else noFavoritos" class="contenedor">
+      <app-character *ngFor="let character of servicio.favoritos" [character]="character"></app-character>
+    </div>
+
+    <ng-template #noFavoritos>
+      <p class="no-favorites">❌ No hay personajes en favoritos.</p>
+    </ng-template>
+  </div>
+</body>
+</html>
+

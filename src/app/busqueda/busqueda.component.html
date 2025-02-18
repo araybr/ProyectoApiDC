@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Document</title>
+</head>
+<body>
+  <div class="search-container">
+    <h1>BÚSQUEDA</h1>
+    <input type="text" #busqueda placeholder="Buscar personaje...">
+    <button (click)="buscar(busqueda.value)">
+      Buscar
+    </button>
+
+    <select #tipoGenero>
+      <option value="female">Mujer</option>
+      <option value="male">Hombre</option>
+      <option value="genderless">Sin Género</option>
+      <option value="unknown">Desconocido</option>
+    </select>
+    <button (click)="buscarPorGenero(tipoGenero.value)">Buscar Por Género</button>
+
+    <select #tipoVida>
+      <option value="alive">Vivo</option>
+      <option value="dead">Muerto</option>
+      <option value="unknown">Desconocido</option>
+    </select>
+    <button (click)="buscarPorVida(tipoVida.value)">Buscar Por Estado</button>
+  </div>
+
+  <div class="contenedor">
+    <app-character *ngFor="let character of characters" [character]="character"></app-character>
+  </div>
+
+  <div class="pagination">
+    <button (click)="anteriorPagina()">Anterior</button>
+    <button (click)="siguientePagina()">Siguiente</button>
+  </div>
+</body>
+</html>
+

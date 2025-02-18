@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=close,favorite"/>
+<div class="character-card">
+  <a [routerLink]="['/detalles/',character.id]">
+    <h2>{{ character.name }}</h2>
+    <img [src]="character.imagen" [alt]="character.name">
+    <p>{{ character.species }}</p>
+  </a>
+
+  <div class="favorite-button">
+    <button class="eliminar" *ngIf="character.estaFavoritos; else anyadir" (click)="servicio.eliminar(character)">
+      <span class="material-symbols-outlined">close</span>
+      Eliminar
+    </button>
+    <ng-template #anyadir>
+      <button class="add-to-team" (click)="servicio.anyadirAFavoritos(character)"><span
+        class="material-symbols-outlined">favorite</span>Favoritos
+      </button>
+    </ng-template>
+  </div>
+</div>

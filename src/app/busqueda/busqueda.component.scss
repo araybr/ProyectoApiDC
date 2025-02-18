@@ -1,0 +1,92 @@
+$primary-color: #4caf50;
+$dark-bg: #1e1e1e;
+$light-bg: #282c34;
+
+.search-container {
+  text-align: center;
+  background: $dark-bg;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 255, 0, 0.2);
+  margin: 20px auto;
+  max-width: 600px;
+
+  h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: $primary-color;
+  }
+
+  input, select {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid $primary-color;
+    border-radius: 5px;
+    background: $light-bg;
+    color: white;
+    outline: none;
+    transition: border 0.3s ease-in-out;
+
+    &:focus {
+      border-color: lighten($primary-color, 20%);
+    }
+  }
+
+  button {
+    background: $primary-color;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+
+    &:hover {
+      background: darken($primary-color, 10%);
+    }
+  }
+}
+
+
+.contenedor {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
+  background-color: $dark-bg;
+  border-radius: 10px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 40px;
+
+  button {
+    background: $primary-color;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+
+    &:hover {
+      background: darken($primary-color, 10%);
+    }
+
+    &:disabled {
+      background: grey;
+      cursor: not-allowed;
+    }
+  }
+}

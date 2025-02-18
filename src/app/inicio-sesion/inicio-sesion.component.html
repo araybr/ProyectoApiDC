@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login</title>
+</head>
+<body>
+
+<div class="login-container" *ngIf="!sesionIniciada; else perfil">
+  <h2>Iniciar Sesión</h2>
+  <input #usuario type="text" placeholder="Usuario">
+  <input #contrasenya type="password" placeholder="Contraseña">
+  <input (click)="iniciarSesion(usuario.value, contrasenya.value)" type="button" class="login-button"
+         value="Iniciar Sesión">
+</div>
+
+<ng-template #perfil>
+  <div class="profile-container">
+    <h2>Mi Perfil</h2>
+    <p>Usuario: {{usuarioPerm}}</p>
+    <img src="https://static.wikia.nocookie.net/multiversus/images/7/71/Evil_Morty_Profile_Icon.png">
+    <input (click)="cerrarSesion()" type="button" class="logout-button" value="Cerrar Sesión">
+  </div>
+</ng-template>
+
+</body>
+</html>

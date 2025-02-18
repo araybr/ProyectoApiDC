@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Detalles del Personaje</title>
+</head>
+<body>
+
+<div class="character-detail">
+  <h2>{{ character.name }}</h2>
+  <img
+    [src]="character.imagen"
+    alt="{{ character.name }}"
+    class="character-image" (mouseover)="mostrarImagen()"
+  >
+
+  <div class="info">
+    <p><span>Specie:</span> {{ character.species }}</p>
+    <p><span>Status:</span> {{ character.status }}</p>
+    <p><span>Origin:</span> {{ character.origin?.name }}</p>
+    <p><span>Gender:</span> {{ character.gender }}</p>
+  </div>
+</div>
+
+<div class="image-popup" *ngIf="imagenVisible"  (mouseout)="ocultarImagen()">
+  <div class="overlay"></div>
+  <div class="popup-content">
+    <img [src]="character.imagen" alt="Imagen Ampliada">
+    <p class="image-url">{{ character.imagen}}</p>
+  </div>
+</div>
+
+</body>
+</html>

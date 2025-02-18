@@ -1,0 +1,92 @@
+$primary-color: #4caf50;
+$dark-bg: #1e1e1e;
+$light-bg: #282c34;
+$hover-color: lighten($primary-color, 10%);
+
+.character-card {
+  background: $light-bg;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 255, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 255, 0, 0.4);
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+    display: block;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: $primary-color;
+    margin-bottom: 10px;
+  }
+
+  img {
+    width: 100%;
+    max-width: 180px;
+    border-radius: 10px;
+    transition: opacity 0.3s;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  p {
+    font-size: 16px;
+    color: #ccc;
+    margin-top: 5px;
+  }
+
+  .favorite-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+
+    button {
+      background: $primary-color;
+      display: flex;
+      align-items: center;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+
+      &:hover {
+        background: $hover-color;
+      }
+    }
+
+    .eliminar{
+      background: rgba(255, 255, 255, 0.2);
+      border: 2px solid red;
+      color: red;
+      transition: background 0.3s, color 0.3s;
+      &:hover {
+        color: white;
+        background-color: red;
+      }
+    }
+
+    .add-to-team {
+      background: rgba(255, 255, 255, 0.2);
+      border: 2px solid $primary-color;
+      color: $primary-color;
+      transition: background 0.3s, color 0.3s;
+
+      &:hover {
+        background: $primary-color;
+        color: white;
+      }
+    }
+  }
+}

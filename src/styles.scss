@@ -1,0 +1,36 @@
+body {
+  background-image: url("https://kids.jotdown.es/wp-content/uploads/2018/03/rickandmortyfingers-1024x576.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  color: white;
+  overflow-x: hidden;
+  transition: background 0.3s, color 0.3s;
+}
+
+.light-mode {
+  background-image: url("https://i.pinimg.com/originals/89/bc/31/89bc3191f362f2e7e4fa789b38e4f5a5.jpg");
+  color: black;
+}
+
+.contenedor,
+.search-container,
+.login-container,
+.profile-container {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  transition: background 0.3s, color 0.3s;
+}
+
+.light-mode .contenedor,
+.light-mode .search-container,
+.light-mode .login-container,
+.light-mode .profile-container {
+  background: rgba(255, 255, 255, 0.8);
+  color: black;
+}
